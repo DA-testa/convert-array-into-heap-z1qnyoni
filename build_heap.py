@@ -42,13 +42,12 @@ def main():
     if "I" in text:
         n = int(input("Input the size: "))
         data = list(map(int, input("Input the heap: ").split()))
-    elif "F" in input_type:
-        while True:
-            try:
-                file_name = "/tests" + input()
-                with open(file_name, 'r', encoding="utf-8") as f:
-                    n = int(f.readline().strip())
-                    data = list(map(int, f.readline().strip().split()))
+    elif "F" in text:
+        faila_nosaukums = input("Input filename: ").strip()
+        faila_nosaukums = "tests/" + faila_nosaukums
+        with open (faila_nosaukums, 'r', encoding = "utf8") as file:
+            n = int(file.readline())
+            data = list(map(int, file.readline().split()))
 
     # checks if lenght of data is the same as the said lenght
     assert len(data) == n
